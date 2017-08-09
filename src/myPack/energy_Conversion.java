@@ -5,6 +5,7 @@
  */
 package myPack;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -124,6 +125,11 @@ public class energy_Conversion extends javax.swing.JFrame {
         jComboBox2.setBackground(new java.awt.Color(0, 0, 204));
         jComboBox2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose one...", "Joules", "Kilojoules", "Thermal calories", "Food calories", "Foot-pounds", "British thermal units" }));
+        jComboBox2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBox2KeyPressed(evt);
+            }
+        });
         jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 140, 30));
 
         jComboBox1.setBackground(new java.awt.Color(0, 0, 204));
@@ -134,12 +140,22 @@ public class energy_Conversion extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jComboBox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jComboBox1KeyPressed(evt);
+            }
+        });
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, 30));
 
         amt_Box.setBackground(new java.awt.Color(0, 0, 153));
         amt_Box.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         amt_Box.setForeground(new java.awt.Color(255, 255, 255));
         amt_Box.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Enter value", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI Light", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        amt_Box.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                amt_BoxKeyPressed(evt);
+            }
+        });
         jPanel2.add(amt_Box, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 140, 60));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 153));
@@ -152,6 +168,11 @@ public class energy_Conversion extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+        jButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton2KeyPressed(evt);
             }
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, -1, -1));
@@ -457,7 +478,283 @@ public class energy_Conversion extends javax.swing.JFrame {
             cov_Box.setText(Double.toString(bt_res)+"" );
         }
 ////////////////////////*Kilojoules*****************////////////////////////
-       
+
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*239.0057;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.239006;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }  
+                  
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*737.5621;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   ///////////////////////****************Thermal calories/****************************
+   
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.004184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.08596;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        } 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.003966;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+                  
+         ////////////////////////**************************Food calories//////////////////////////         
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3085.96;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.965666;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+////////////**********************************************Foot-pounds**********
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.355818;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001356;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.324048;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000324;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+  else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001285;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+ //*****************************************British thermal units*****************
+ 
+else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1055.056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.055056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*252.1644;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.2522164;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*778.1694;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+
+                  
             }
             catch (Exception e){
             
@@ -596,6 +893,1453 @@ public class energy_Conversion extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jMenuBar1MousePressed
+
+    private void jButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton2KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        
+        
+             if(
+                jComboBox1.getSelectedItem().equals("Choose one...")
+                || jComboBox2.getSelectedItem().equals("Choose one...")
+                || amt_Box.getText().isEmpty())
+        {
+        setVisible(false);
+        energy_conv_Error ee = new energy_conv_Error();
+        ee.setVisible(true);
+        }
+        
+        else{
+        
+            
+            try{
+                //*****************************************jOULES***********************
+            
+                  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double j_val = Double.parseDouble(amt_Box.getText());
+
+            double j_res = j_val*1;
+
+            cov_Box.setText(Double.toString(j_res)+" J" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double kj_val = Double.parseDouble(amt_Box.getText());
+
+            double kj_res = kj_val*0.001;
+
+            cov_Box.setText(Double.toString(kj_res)+" kJ" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double tc_val = Double.parseDouble(amt_Box.getText());
+
+            double tc_res =tc_val*0.239006;
+
+            cov_Box.setText(Double.toString(tc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double fc_val = Double.parseDouble(amt_Box.getText());
+
+            double fc_res =fc_val*0.000239;
+
+            cov_Box.setText(Double.toString(fc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double fp_val = Double.parseDouble(amt_Box.getText());
+
+            double fp_res =fp_val*0.737562;
+
+            cov_Box.setText(Double.toString(fp_res)+"" );
+        }
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+////////////////////////*Kilojoules*****************////////////////////////
+
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*239.0057;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.239006;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }  
+                  
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*737.5621;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   ///////////////////////****************Thermal calories/****************************
+   
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.004184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.08596;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        } 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.003966;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+                  
+         ////////////////////////**************************Food calories//////////////////////////         
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3085.96;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.965666;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+////////////**********************************************Foot-pounds**********
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.355818;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001356;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.324048;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000324;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+  else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001285;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+ //*****************************************British thermal units*****************
+ 
+else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1055.056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.055056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*252.1644;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.2522164;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*778.1694;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+
+                  
+            }
+            catch (Exception e){
+            
+                setVisible(false);
+                energy_Conversion fp = new energy_Conversion();
+                fp.setVisible(true);
+            }
+        }
+        }
+    }//GEN-LAST:event_jButton2KeyPressed
+
+    private void amt_BoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amt_BoxKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        
+             if(
+                jComboBox1.getSelectedItem().equals("Choose one...")
+                || jComboBox2.getSelectedItem().equals("Choose one...")
+                || amt_Box.getText().isEmpty())
+        {
+        setVisible(false);
+        energy_conv_Error ee = new energy_conv_Error();
+        ee.setVisible(true);
+        }
+        
+        else{
+        
+            
+            try{
+                //*****************************************jOULES***********************
+            
+                  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double j_val = Double.parseDouble(amt_Box.getText());
+
+            double j_res = j_val*1;
+
+            cov_Box.setText(Double.toString(j_res)+" J" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double kj_val = Double.parseDouble(amt_Box.getText());
+
+            double kj_res = kj_val*0.001;
+
+            cov_Box.setText(Double.toString(kj_res)+" kJ" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double tc_val = Double.parseDouble(amt_Box.getText());
+
+            double tc_res =tc_val*0.239006;
+
+            cov_Box.setText(Double.toString(tc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double fc_val = Double.parseDouble(amt_Box.getText());
+
+            double fc_res =fc_val*0.000239;
+
+            cov_Box.setText(Double.toString(fc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double fp_val = Double.parseDouble(amt_Box.getText());
+
+            double fp_res =fp_val*0.737562;
+
+            cov_Box.setText(Double.toString(fp_res)+"" );
+        }
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+////////////////////////*Kilojoules*****************////////////////////////
+
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*239.0057;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.239006;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }  
+                  
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*737.5621;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   ///////////////////////****************Thermal calories/****************************
+   
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.004184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.08596;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        } 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.003966;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+                  
+         ////////////////////////**************************Food calories//////////////////////////         
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3085.96;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.965666;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+////////////**********************************************Foot-pounds**********
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.355818;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001356;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.324048;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000324;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+  else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001285;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+ //*****************************************British thermal units*****************
+ 
+else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1055.056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.055056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*252.1644;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.2522164;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*778.1694;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+
+                  
+            }
+            catch (Exception e){
+            
+                setVisible(false);
+                energy_Conversion fp = new energy_Conversion();
+                fp.setVisible(true);
+            }
+        }
+        }
+    }//GEN-LAST:event_amt_BoxKeyPressed
+
+    private void jComboBox1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyPressed
+        // TODO add your handling code here:
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        
+        
+             if(
+                jComboBox1.getSelectedItem().equals("Choose one...")
+                || jComboBox2.getSelectedItem().equals("Choose one...")
+                || amt_Box.getText().isEmpty())
+        {
+        setVisible(false);
+        energy_conv_Error ee = new energy_conv_Error();
+        ee.setVisible(true);
+        }
+        
+        else{
+        
+            
+            try{
+                //*****************************************jOULES***********************
+            
+                  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double j_val = Double.parseDouble(amt_Box.getText());
+
+            double j_res = j_val*1;
+
+            cov_Box.setText(Double.toString(j_res)+" J" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double kj_val = Double.parseDouble(amt_Box.getText());
+
+            double kj_res = kj_val*0.001;
+
+            cov_Box.setText(Double.toString(kj_res)+" kJ" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double tc_val = Double.parseDouble(amt_Box.getText());
+
+            double tc_res =tc_val*0.239006;
+
+            cov_Box.setText(Double.toString(tc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double fc_val = Double.parseDouble(amt_Box.getText());
+
+            double fc_res =fc_val*0.000239;
+
+            cov_Box.setText(Double.toString(fc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double fp_val = Double.parseDouble(amt_Box.getText());
+
+            double fp_res =fp_val*0.737562;
+
+            cov_Box.setText(Double.toString(fp_res)+"" );
+        }
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+////////////////////////*Kilojoules*****************////////////////////////
+
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*239.0057;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.239006;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }  
+                  
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*737.5621;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   ///////////////////////****************Thermal calories/****************************
+   
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.004184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.08596;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        } 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.003966;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+                  
+         ////////////////////////**************************Food calories//////////////////////////         
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3085.96;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.965666;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+////////////**********************************************Foot-pounds**********
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.355818;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001356;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.324048;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000324;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+  else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001285;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+ //*****************************************British thermal units*****************
+ 
+else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1055.056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.055056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*252.1644;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.2522164;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*778.1694;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+
+                  
+            }
+            catch (Exception e){
+            
+                setVisible(false);
+                energy_Conversion fp = new energy_Conversion();
+                fp.setVisible(true);
+            }
+        }
+        }
+    }//GEN-LAST:event_jComboBox1KeyPressed
+
+    private void jComboBox2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox2KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        
+             if(
+                jComboBox1.getSelectedItem().equals("Choose one...")
+                || jComboBox2.getSelectedItem().equals("Choose one...")
+                || amt_Box.getText().isEmpty())
+        {
+        setVisible(false);
+        energy_conv_Error ee = new energy_conv_Error();
+        ee.setVisible(true);
+        }
+        
+        else{
+        
+            
+            try{
+                //*****************************************jOULES***********************
+            
+                  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double j_val = Double.parseDouble(amt_Box.getText());
+
+            double j_res = j_val*1;
+
+            cov_Box.setText(Double.toString(j_res)+" J" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double kj_val = Double.parseDouble(amt_Box.getText());
+
+            double kj_res = kj_val*0.001;
+
+            cov_Box.setText(Double.toString(kj_res)+" kJ" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double tc_val = Double.parseDouble(amt_Box.getText());
+
+            double tc_res =tc_val*0.239006;
+
+            cov_Box.setText(Double.toString(tc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double fc_val = Double.parseDouble(amt_Box.getText());
+
+            double fc_res =fc_val*0.000239;
+
+            cov_Box.setText(Double.toString(fc_res)+"" );
+        }
+
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double fp_val = Double.parseDouble(amt_Box.getText());
+
+            double fp_res =fp_val*0.737562;
+
+            cov_Box.setText(Double.toString(fp_res)+"" );
+        }
+        else  if (jComboBox1.getSelectedItem().equals("Joules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+////////////////////////*Kilojoules*****************////////////////////////
+
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*239.0057;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.239006;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }  
+                  
+else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*737.5621;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Kilojoules")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.947817;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   ///////////////////////****************Thermal calories/****************************
+   
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.004184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.08596;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        } 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Thermal calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.003966;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+                  
+         ////////////////////////**************************Food calories//////////////////////////         
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*4.184;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1000;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3085.96;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Food calories")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*3.965666;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                 
+////////////**********************************************Foot-pounds**********
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.355818;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001356;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.324048;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.000324;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                  
+  else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+ else  if (jComboBox1.getSelectedItem().equals("Foot-pounds")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.001285;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+ //*****************************************British thermal units*****************
+ 
+else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Joules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1055.056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Kilojoules")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1.055056;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Thermal calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*252.1644;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Food calories")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*0.2522164;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+                  
+   else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("Foot-pounds")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*778.1694;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }               
+  else  if (jComboBox1.getSelectedItem().equals("British thermal units")&& jComboBox2.getSelectedItem().equals("British thermal units")){
+
+            double bt_val = Double.parseDouble(amt_Box.getText());
+
+            double bt_res =bt_val*1;
+
+            cov_Box.setText(Double.toString(bt_res)+"" );
+        }                 
+                  
+
+                  
+            }
+            catch (Exception e){
+            
+                setVisible(false);
+                energy_Conversion fp = new energy_Conversion();
+                fp.setVisible(true);
+            }
+        }
+        }
+    }//GEN-LAST:event_jComboBox2KeyPressed
 
     /**
      * @param args the command line arguments
