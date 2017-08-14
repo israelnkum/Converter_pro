@@ -111,6 +111,12 @@ public class main_form1 extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Calculator");
         jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 190, -1));
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 200, 140));
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +185,13 @@ public class main_form1 extends javax.swing.JFrame {
         Unit_Conversion un = new Unit_Conversion();
         un.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Calculator_ cc = new Calculator_();
+        cc.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
