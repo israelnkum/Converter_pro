@@ -5,10 +5,7 @@
  */
 package myPack;
 
-import static com.sun.glass.ui.Application.run;
-import java.awt.Color;
 import javax.swing.JOptionPane;
-import static sun.font.FontManagerNativeLibrary.load;
 
 /**
  *

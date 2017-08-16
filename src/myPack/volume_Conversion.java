@@ -5,7 +5,7 @@
  */
 package myPack;
 
-import com.sun.glass.events.KeyEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
